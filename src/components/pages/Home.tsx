@@ -8,6 +8,7 @@ import Header from "../Header";
 import Banner from "../Banner";
 import Carousel from "../Carousel";
 import NewProd from "../NewProd";
+import Service from "../Service";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -50,6 +51,7 @@ const Home = () => {
         <section className={classes.product}>
           <NewProd />
         </section>
+        <Service />
       </Container>
     </main>
   );

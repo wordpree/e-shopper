@@ -4,7 +4,7 @@ export interface IProduction {
   count: number;
   rate: number;
   des: string;
-  price: string;
+  price: number;
   sold: boolean;
   hot: boolean;
   discount: number;
