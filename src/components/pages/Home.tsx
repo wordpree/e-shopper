@@ -9,6 +9,7 @@ import Banner from "../Banner";
 import Carousel from "../Carousel";
 import NewProd from "../NewProd";
 import Service from "../Service";
+import Feature from "../Feature";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -52,6 +53,7 @@ const Home = () => {
           <NewProd />
         </section>
         <Service />
+        <Feature />
       </Container>
     </main>
   );

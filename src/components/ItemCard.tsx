@@ -29,10 +29,10 @@ const ItemCard = ({
   const discountPrice = (price * discount) / 100;
   const salePrice = price - discountPrice;
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} style={{ position: "relative" }}>
       {discount !== 0 && <Discount discount={discount} />}
       {hot && <HotDeal />}
-      <CardActionArea>
+      <CardActionArea style={{ padding: "1em" }} className={classes.actionArea}>
         <CardMedia image={image} className={classes.media} />
       </CardActionArea>
       <CardContent className={classes.content}>

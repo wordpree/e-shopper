@@ -86,7 +86,7 @@ export const newArrival = [
     sold: false,
     hot: true,
     discount: 0,
-    id: "new-0",
+    id: "fe-0",
   },
   {
     item: "Superbike Strike",
@@ -98,7 +98,7 @@ export const newArrival = [
     sold: false,
     hot: false,
     discount: 10,
-    id: "new-1",
+    id: "fe-1",
   },
   {
     item: "S-Mountain Bike",
@@ -110,7 +110,7 @@ export const newArrival = [
     sold: true,
     hot: false,
     discount: 18,
-    id: "new-2",
+    id: "fe-2",
   },
   {
     item: "Fluid Bearable",
@@ -122,7 +122,7 @@ export const newArrival = [
     sold: false,
     hot: false,
     discount: 0,
-    id: "new-3",
+    id: "fe-3",
   },
   {
     item: "Co-Stretch SV",
@@ -134,7 +134,7 @@ export const newArrival = [
     sold: false,
     hot: true,
     discount: 10,
-    id: "new-4",
+    id: "fe-4",
   },
   {
     item: "Superbike Ocean",
@@ -146,7 +146,7 @@ export const newArrival = [
     sold: false,
     hot: false,
     discount: 20,
-    id: "new-5",
+    id: "fe-5",
   },
   {
     item: "Small Road Bike",
@@ -158,7 +158,7 @@ export const newArrival = [
     sold: false,
     hot: true,
     discount: 0,
-    id: "new-6",
+    id: "fe-6",
   },
   {
     item: "Blue Entertainment",
@@ -170,7 +170,7 @@ export const newArrival = [
     sold: true,
     hot: true,
     discount: 0,
-    id: "new-7",
+    id: "fe-7",
   },
 ];
 
@@ -198,5 +198,56 @@ export const services = [
     subtitle: "Online Support",
     Icon: ContactPhoneOutlined,
     id: "service-3",
+  },
+];
+
+export const feature = [
+  {
+    item: "Powup Season SV",
+    image: bike,
+    count: 30,
+    rate: 4,
+    des: "333 Super Steel Framer Support",
+    price: 2260,
+    sold: false,
+    hot: true,
+    discount: 10,
+    id: "fe-1",
+  },
+  {
+    item: "Superhiking Ocean",
+    image: bike,
+    count: 58,
+    rate: 4.5,
+    des: "D-Philo Model Circle Round",
+    price: 1900,
+    sold: false,
+    hot: false,
+    discount: 20,
+    id: "fe-2",
+  },
+  {
+    item: "Feature Road Bike",
+    image: bike,
+    count: 12,
+    rate: 4.5,
+    des: "IV-6 Super Speed Up",
+    price: 800,
+    sold: false,
+    hot: true,
+    discount: 0,
+    id: "fe-3",
+  },
+  {
+    item: "Spring Entertainment",
+    image: bike,
+    count: 28,
+    rate: 5,
+    des: "De Blue 700 X Framer",
+    price: 600,
+    sold: true,
+    hot: true,
+    discount: 0,
+    id: "fe-4",
   },
 ];

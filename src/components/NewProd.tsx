@@ -12,12 +12,6 @@ import ItemCard from "./ItemCard";
 
 const styles = ({ breakpoints }: Theme) =>
   createStyles({
-    card: {
-      position: "relative",
-      "&>button": {
-        padding: "1em",
-      },
-    },
     media: {
       height: 0,
       paddingTop: "100%",

@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "7rem",
     minHeight: 238,
-    padding: "1.5em 1em",
+    padding: "3em 1em",
     backgroundColor: "#fefefe",
     "&>p": {
       textAlign: "left",
