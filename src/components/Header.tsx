@@ -8,6 +8,7 @@ import {
 import { Typography, Button, makeStyles, withStyles } from "@material-ui/core";
 import LinkNav from "./LinkNav";
 import HeaderMobileNav from "./HeaderMobileNav";
+import { linkRef } from "../utils";
 
 interface IHProps {
   bg?: boolean;
@@ -107,6 +108,7 @@ const Header = ({ bg = true }: IHProps) => {
     setOpen(false);
   };
   const WithLinkNav = withStyles(btn)(LinkNav);
+  const loginRef = linkRef("/login");
   return (
     <>
       <header
@@ -119,7 +121,9 @@ const Header = ({ bg = true }: IHProps) => {
         </div>
         <nav className={classes.nav}>
           <WithLinkNav />
-          <Button className={classes.loginBtn}>Login</Button>
+          <Button className={classes.loginBtn} component={loginRef}>
+            Login
+          </Button>
         </nav>
         <div className={classes.actionBtn}>
           <Button className={classes.menu} onClick={handleMenuOpen}>
