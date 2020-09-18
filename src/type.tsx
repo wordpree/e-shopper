@@ -10,3 +10,8 @@ export interface IProduction {
   discount: number;
   id: string;
 }
+
+export interface ICountdown {
+  name: string;
+  count: number;
+}

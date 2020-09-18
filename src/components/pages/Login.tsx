@@ -2,6 +2,7 @@ import React from "react";
 import bike from "../../assets/bike.jpg";
 import { makeStyles, Paper } from "@material-ui/core";
 import CountDown from "../CountDown";
+import Header from "../Header";
 import CountDownBanner from "../CountDownBanner";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,13 +20,16 @@ const useStyles = makeStyles((theme) => ({
     background: "rgba(0,0,0,0.32)",
   },
   wrapper: {
-    padding: "6em 8%",
     zIndex: 1,
     position: "relative",
-    display: "flex",
-    "&>div": {
-      flex: "0 1 50%",
-      padding: "1em",
+    padding: "3em 1em 1em",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+      padding: "8em 8%",
+      "&>div": {
+        flex: "0 1 50%",
+        padding: "1em",
+      },
     },
   },
 }));
@@ -35,15 +39,14 @@ const Signup = () => {
 
   return (
     <section>
-      <header>
-        <Paper className={classes.bgImg}>
-          <div className={classes.overlay} />
-          <div className={classes.wrapper}>
-            <CountDownBanner />
-            <CountDown />
-          </div>
-        </Paper>
-      </header>
+      <Paper className={classes.bgImg}>
+        <Header bg={false} />
+        <div className={classes.overlay} />
+        <div className={classes.wrapper}>
+          <CountDownBanner />
+          <CountDown />
+        </div>
+      </Paper>
     </section>
   );
 };

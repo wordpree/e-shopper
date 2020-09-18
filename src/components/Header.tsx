@@ -5,7 +5,14 @@ import {
   SearchOutlined,
   MenuOutlined,
 } from "@material-ui/icons";
-import { Typography, Button, makeStyles, withStyles } from "@material-ui/core";
+import {
+  Typography,
+  Button,
+  makeStyles,
+  withStyles,
+  createStyles,
+  Theme,
+} from "@material-ui/core";
 import LinkNav from "./LinkNav";
 import HeaderMobileNav from "./HeaderMobileNav";
 import { linkRef } from "../utils";
@@ -53,9 +60,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   loginBtn: {
-    color: "#fff",
-    background: "#EF8216",
-    width: 89,
+    "&:not(.active)": {
+      color: "#fff",
+      background: "#EF8216",
+      width: 89,
+    },
   },
   actionBtn: {
     display: "flex",
@@ -87,16 +96,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const btn = {
-  navBtn: {
-    color: "#fff",
-    minWidth: 89,
-    marginRight: "0.5em",
-  },
-  navList: {
-    listStyle: "none",
-  },
-};
+const btn = ({ breakpoints }: Theme) =>
+  createStyles({
+    navBtn: {
+      color: "#fff",
+      minWidth: 89,
+      marginRight: "0.5em",
+      fontSize: "0.875rem",
+      [breakpoints.up(1200)]: {
+        fontSize: "1rem",
+      },
+    },
+    navList: {
+      listStyle: "none",
+    },
+  });
 
 const Header = ({ bg = true }: IHProps) => {
   const classes = useStyles();

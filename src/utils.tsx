@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { NavLink, LinkProps } from "react-router-dom";
 import { activeStyle } from "./data";
+import { ICountdown } from "./type";
 
 export const linkRef = (to: string) => {
   return forwardRef<any, Omit<LinkProps, "to">>((props, ref) => (
@@ -21,6 +22,12 @@ export const getCountdown = (seconds: number) => {
   let h = Math.floor((seconds % (3600 * 24)) / 3600);
   let m = Math.floor((seconds % 3600) / 60);
   let s = Math.floor(seconds % 60);
+  if (seconds < 0) {
+    d = 0;
+    h = 0;
+    m = 0;
+    s = 0;
+  }
   return [
     {
       name: "Day",
@@ -43,4 +50,8 @@ export const getCountdown = (seconds: number) => {
 
 export const largeThanOne = (figure: number) => {
   return figure > 1;
+};
+
+export const isCountdownFinished = (countdown: ICountdown[]) => {
+  return countdown.every((c) => c.count === 0);
 };

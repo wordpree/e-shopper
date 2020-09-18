@@ -1,16 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getCountdown } from "../utils";
 
 const useCountdown = (date: string) => {
-  const [elapsed, setElapsed] = useState(0);
+  const [elapsed, setElapsed] = useState(() => Date.parse(date));
+  const intervalRef = useRef<number>(0);
   useEffect(() => {
-    const handleElapsed = () => {
-      setElapsed(Date.now() - elapsed);
-    };
-    const handle = setInterval(handleElapsed, 1000);
-    return () => clearInterval(handle);
-  }, []);
-  const countSeconds = Math.floor((Date.parse(date) - elapsed) / 1000); //mills=>seconds
+    intervalRef.current = window.setInterval(
+      () => setElapsed(Date.parse(date) - Date.now()),
+      1000
+    );
+    return () => clearInterval(intervalRef.current);
+  }, [date]);
+  const countSeconds = Math.floor(elapsed / 1000); //mills=>seconds
+  if (countSeconds < 0) {
+    clearInterval(intervalRef.current);
+  }
   return getCountdown(countSeconds);
 };
 export default useCountdown;

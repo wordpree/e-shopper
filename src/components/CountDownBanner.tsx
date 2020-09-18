@@ -5,31 +5,52 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     zIndex: 1,
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      textAlign: "left",
+    },
   },
   title: {
     fontWeight: "bold",
     color: "#fff",
-    fontSize: "5rem",
+    fontSize: "3rem",
     "&>span": {
       color: "#EF8216",
     },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "3rem",
+    },
+    [theme.breakpoints.up(1480)]: {
+      fontSize: "5rem",
+    },
   },
   subTitle: {
+    marginTop: "0.25rem",
     color: "#fff",
     fontWeight: "bold",
   },
   action: {
-    marginTop: "3rem",
+    flexDirection: "column",
+    margin: "3rem auto 0",
     display: "flex",
     maxWidth: 488,
     alignItems: "center",
     "&>*": {
       color: "#fff",
     },
+    [theme.breakpoints.up("md")]: {
+      marginLeft: "inherit",
+      marginRight: "inherit",
+      flexDirection: "row",
+    },
   },
   btn: {
-    width: 268,
-    marginRight: "auto",
+    width: 218,
+    marginBottom: "0.5rem",
+    marginRight: "0.5rem",
+    [theme.breakpoints.up("lg")]: {
+      marginRight: "2rem",
+    },
   },
 }));
 
