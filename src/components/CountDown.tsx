@@ -1,6 +1,8 @@
 import React from "react";
-import useCountdown from "./useCountdown";
+import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core";
+import { variantsCtd } from "../data";
+import useCountdown from "./useCountdown";
 import { largeThanOne, isCountdownFinished } from "../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,10 +55,15 @@ const useStyles = makeStyles((theme) => ({
 
 const CountDown = () => {
   const classes = useStyles();
-  const countdown = useCountdown("18 Sep 2020 10:18:00");
+  const countdown = useCountdown("22 Sep 2020 10:18:00");
   const isFinished = isCountdownFinished(countdown);
   return (
-    <div className={classes.root}>
+    <motion.div
+      className={classes.root}
+      initial="hidden"
+      animate="visible"
+      variants={variantsCtd}
+    >
       {isFinished && <div>(Our Special Order is Over)</div>}
       <div className={classes.wrapper}>
         {countdown.map((c) => (
@@ -69,7 +76,7 @@ const CountDown = () => {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

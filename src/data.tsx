@@ -57,6 +57,21 @@ export const variantsNavLists = {
   visible: { transition: { staggerChildren: 0.07, delayChildren: 0.4 } },
 };
 
+export const variantsCtd = {
+  hidden: { y: "-100vh", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      mass: 0.8,
+      stiffness: 70,
+      delay: 0.4,
+      ease: "easeIn",
+    },
+  },
+};
+
 export const variantsNavList = {
   hidden: {
     y: 80,

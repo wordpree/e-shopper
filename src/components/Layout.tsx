@@ -1,32 +1,50 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { Home, Login, Cart, Mountain, Commuter, Road, Kids } from "./pages";
 
 const Layout = () => {
+  const routeNav = [
+    {
+      path: "/",
+      render: Home,
+    },
+    {
+      path: "/mountain",
+      render: Mountain,
+    },
+    {
+      path: "/commuter",
+      render: Commuter,
+    },
+    {
+      path: "/road",
+      render: Road,
+    },
+    {
+      path: "/kids",
+      render: Kids,
+    },
+    {
+      path: "/login",
+      render: Login,
+    },
+    {
+      path: "/cart",
+      render: Cart,
+    },
+  ];
+  const location = useLocation();
   return (
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/mountain">
-        <Mountain />
-      </Route>
-      <Route path="/commuter">
-        <Commuter />
-      </Route>
-      <Route path="/road">
-        <Road />
-      </Route>
-      <Route path="/kids">
-        <Kids />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/cart">
-        <Cart />
-      </Route>
-    </Switch>
+    <AnimatePresence initial={false} exitBeforeEnter>
+      <Switch key={location.pathname}>
+        {routeNav.map((r) => (
+          <Route exact path={r.path} key={r.path}>
+            <r.render />
+          </Route>
+        ))}
+      </Switch>
+    </AnimatePresence>
   );
 };
 

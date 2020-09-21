@@ -53,5 +53,5 @@ export const largeThanOne = (figure: number) => {
 };
 
 export const isCountdownFinished = (countdown: ICountdown[]) => {
-  return countdown.every((c) => c.count === 0);
+  return countdown.every((c) => c.count < 0);
 };

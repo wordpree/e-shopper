@@ -1,8 +1,9 @@
 import React from "react";
-import bike from "../../assets/bike.jpg";
 import { makeStyles, Paper } from "@material-ui/core";
-import CountDown from "../CountDown";
 import Header from "../Header";
+import CountDown from "../CountDown";
+import bike from "../../assets/bike.jpg";
+import PageTransition from "../PageTransition";
 import CountDownBanner from "../CountDownBanner";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,16 +39,18 @@ const Signup = () => {
   const classes = useStyles();
 
   return (
-    <section>
-      <Paper className={classes.bgImg}>
-        <Header bg={false} />
-        <div className={classes.overlay} />
-        <div className={classes.wrapper}>
-          <CountDownBanner />
-          <CountDown />
-        </div>
-      </Paper>
-    </section>
+    <PageTransition>
+      <section>
+        <Paper className={classes.bgImg}>
+          <Header bg={false} />
+          <div className={classes.overlay} />
+          <div className={classes.wrapper}>
+            <CountDownBanner />
+            <CountDown />
+          </div>
+        </Paper>
+      </section>
+    </PageTransition>
   );
 };
 
