@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@material-ui/core";
+import { Button, useMediaQuery } from "@material-ui/core";
 import { linkRef } from "../utils";
 import { nav, variantsNavList } from "../data";
 
@@ -11,6 +11,7 @@ interface ILProps {
 }
 
 const LinkNav = ({ classes }: ILProps) => {
+  const mobile = useMediaQuery("(max-width:959px)");
   return (
     <>
       {nav.map((n) => {
@@ -19,7 +20,7 @@ const LinkNav = ({ classes }: ILProps) => {
           <motion.li
             key={n.id}
             className={classes.navList}
-            variants={variantsNavList}
+            variants={mobile ? variantsNavList : undefined}
           >
             <Button
               variant="text"
