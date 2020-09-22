@@ -5,6 +5,7 @@ import CountDown from "../CountDown";
 import bike from "../../assets/bike.jpg";
 import PageTransition from "../PageTransition";
 import CountDownBanner from "../CountDownBanner";
+import LoginForm from "../LoginForm";
 
 const useStyles = makeStyles((theme) => ({
   bgImg: {
@@ -50,6 +51,7 @@ const Signup = () => {
           </div>
         </Paper>
       </section>
+      <LoginForm />
     </PageTransition>
   );
 };
