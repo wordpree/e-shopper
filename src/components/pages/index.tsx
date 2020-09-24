@@ -5,3 +5,4 @@ export { default as Road } from "./Road";
 export { default as Kids } from "./Kids";
 export { default as Cart } from "./Cart";
 export { default as Login } from "./Login";
+export { default as Signup } from "./Signup";

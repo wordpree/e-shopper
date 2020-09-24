@@ -55,3 +55,12 @@ export const largeThanOne = (figure: number) => {
 export const isCountdownFinished = (countdown: ICountdown[]) => {
   return countdown.every((c) => c.count < 0);
 };
+
+export const emailVandilation = (email: string) => {
+  if (!email) {
+    return "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+    return "Invalid Email Address";
+  }
+  return null;
+};

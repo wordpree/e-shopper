@@ -15,3 +15,12 @@ export interface ICountdown {
   name: string;
   count: number;
 }
+
+export interface ILogin {
+  email: string;
+  password: string;
+  checkbox: boolean;
+  error: null | string;
+}
+
+export type TChangeEvent = React.ChangeEvent<HTMLInputElement>;

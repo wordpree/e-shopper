@@ -1,7 +1,16 @@
 import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch, useLocation } from "react-router-dom";
-import { Home, Login, Cart, Mountain, Commuter, Road, Kids } from "./pages";
+import {
+  Home,
+  Login,
+  Signup,
+  Cart,
+  Mountain,
+  Commuter,
+  Road,
+  Kids,
+} from "./pages";
 
 const Layout = () => {
   const routeNav = [
@@ -28,6 +37,10 @@ const Layout = () => {
     {
       path: "/login",
       render: Login,
+    },
+    {
+      path: "/signup",
+      render: Signup,
     },
     {
       path: "/cart",

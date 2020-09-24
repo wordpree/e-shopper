@@ -1,22 +1,12 @@
 import React from "react";
-import bike from "../../assets/biek.jpg";
-import { makeStyles, Paper } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  bgImg: {
-    background: `center / cover no-repeat url(${bike})`,
-    maxHeight: "528",
-  },
-}));
+import SignupForm from "../SignupForm";
+import SignHero from "../SignHero";
 
 const Signup = () => {
-  const classes = useStyles();
   return (
-    <section>
-      <header>
-        <Paper className={classes.bgImg}></Paper>
-      </header>
-    </section>
+    <SignHero>
+      <SignupForm />
+    </SignHero>
   );
 };
 

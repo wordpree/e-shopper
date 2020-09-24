@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CloseOutlined from "@material-ui/icons/CloseOutlined";
 import {
   Button,
@@ -45,19 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
   labelText: {
     fontWeight: "bold",
-  },
-  account: {
-    textAlign: "right",
-    marginTop: "0.5rem",
-    display: "block",
-    textDecoration: "none",
     "&>span": {
-      fontWeight: "bold",
+      color: "#EF8216",
     },
   },
 }));
 
-const LoginForm = () => {
+const SignupForm = () => {
   const classes = useStyles();
   const submit = () => console.log(input);
   const { input, handleChange, handleSubmit } = useFormLogin(
@@ -69,7 +62,7 @@ const LoginForm = () => {
     <Container>
       <section className={classes.root}>
         <div className={classes.header}>
-          <Typography>LOGIN</Typography>
+          <Typography>SIGN UP</Typography>
           <Button>
             <CloseOutlined />
           </Button>
@@ -98,6 +91,13 @@ const LoginForm = () => {
             placeholder="password"
             name="password"
           />
+          <FormInput
+            type="password"
+            value={password}
+            handleChange={handleChange}
+            placeholder="confirm password"
+            name="password"
+          />
           <div className={classes.checkbox}>
             <Checkbox
               inputProps={{
@@ -109,26 +109,19 @@ const LoginForm = () => {
               onChange={handleChange}
               checked={checkbox}
             />
-            <label htmlFor="remember">
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.labelText}
-              >
-                Remember Me
-              </Typography>
-            </label>
-          </div>
-          <FormAction to="/" btn1="Forgot Password" btn2="LOGIN" />
-          <Link to="/signup" className={classes.account}>
-            <Typography component="span" variant="caption" color="primary">
-              Don't Have An Account?
+            <Typography
+              component="span"
+              variant="body2"
+              className={classes.labelText}
+            >
+              I Accept With <span>Terms & Agreement</span>
             </Typography>
-          </Link>
+          </div>
+          <FormAction to="/login" btn1="Have An Account" btn2="Sign Up" />
         </form>
       </section>
     </Container>
   );
 };
 
-export default LoginForm;
+export default SignupForm;
