@@ -6,7 +6,7 @@ interface IFProps {
   handleChange(e: TChangeEvent): void;
   value: string;
   type: string;
-  placeholder: string;
+  label: string;
   name: string;
 }
 
@@ -19,18 +19,12 @@ const useStyles = makeStyles({
   },
 });
 
-const FormInput = ({
-  handleChange,
-  value,
-  type,
-  placeholder,
-  name,
-}: IFProps) => {
+const FormInput = ({ handleChange, value, type, label, name }: IFProps) => {
   const classes = useStyles();
   return (
     <TextField
       required
-      placeholder={placeholder}
+      label={label}
       type={type}
       className={classes.textfield}
       fullWidth

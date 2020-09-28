@@ -1,8 +1,9 @@
-import React from "react";
-import { Typography, makeStyles, Checkbox } from "@material-ui/core";
+import React, { useState } from "react";
+import { Auth } from "aws-amplify";
+import { Typography, makeStyles, Checkbox, Tooltip } from "@material-ui/core";
 import FormInput from "./FormInput";
 import FormAction from "./FormAction";
-import useFormLogin from "./useFormLogin";
+import useFormLogin from "./useForm";
 import { emailVandilation } from "../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up(768)]: {
       padding: "2em",
     },
+  },
+  inputWrapper: {
+    marginTop: "2rem",
+    "&>div": { marginTop: "0.25rem" },
   },
   error: {
     color: "#ef6716",
@@ -30,19 +35,49 @@ const useStyles = makeStyles((theme) => ({
 
 const FormSignup = () => {
   const classes = useStyles();
-  const submit = () => console.log(input);
+  const [awsUser, setAwsUser] = useState<{ user: any; awsErr: null | string }>({
+    user: null,
+    awsErr: null,
+  });
+  const signup = async (username: string, password: string, email: string) => {
+    try {
+      const { user } = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email,
+        },
+      });
+      setAwsUser({ awsErr: null, user: user.getUsername() });
+    } catch (error) {
+      setAwsUser({ user: null, awsErr: error.message });
+    }
+  };
   const { input, handleChange, handleSubmit } = useFormLogin(
-    submit,
+    signup,
     emailVandilation
   );
-  const { email, password, checkbox, error } = input;
+  const { email, password, checkbox, error, username } = input;
+
   return (
-    <form className={classes.form} onSubmit={handleSubmit} noValidate>
+    <form
+      className={classes.form}
+      onSubmit={handleSubmit}
+      noValidate
+      autoComplete="off"
+    >
+      <FormInput
+        type="text"
+        value={username}
+        handleChange={handleChange}
+        label="user name"
+        name="username"
+      />
       <FormInput
         type="email"
         value={email}
         handleChange={handleChange}
-        placeholder="email"
+        label="email"
         name="email"
       />
       {error && (
@@ -54,18 +89,31 @@ const FormSignup = () => {
           {error}
         </Typography>
       )}
+      <div className={classes.inputWrapper}>
+        <Tooltip
+          title={
+            <Typography variant="body2">
+              must contain numbers,special characters,uppercase/lowercase
+              letters and 8 minimum length.
+            </Typography>
+          }
+          placement="bottom-start"
+        >
+          <Typography>password rules</Typography>
+        </Tooltip>
+        <FormInput
+          type="password"
+          value={password}
+          handleChange={handleChange}
+          label="password"
+          name="password"
+        />
+      </div>
       <FormInput
         type="password"
         value={password}
         handleChange={handleChange}
-        placeholder="password"
-        name="password"
-      />
-      <FormInput
-        type="password"
-        value={password}
-        handleChange={handleChange}
-        placeholder="confirm password"
+        label="confirm password"
         name="password"
       />
       <div className={classes.checkbox}>

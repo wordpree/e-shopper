@@ -1,8 +1,8 @@
 import React from "react";
-import FormSignup from "../FormSignup";
-import SignHero from "../SignHero";
-import FormHeader from "../FormHeader";
 import { makeStyles, Container } from "@material-ui/core";
+import SignHero from "../SignHero";
+import FormSignup from "../FormSignup";
+import FormHeader from "../FormHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {

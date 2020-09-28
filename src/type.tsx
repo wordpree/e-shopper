@@ -17,6 +17,7 @@ export interface ICountdown {
 }
 
 export interface ILogin {
+  username: string;
   email: string;
   password: string;
   checkbox: boolean;

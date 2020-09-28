@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Typography, makeStyles, Checkbox } from "@material-ui/core";
 import FormInput from "./FormInput";
 import FormAction from "./FormAction";
-import useFormLogin from "./useFormLogin";
+import useFormLogin from "./useForm";
 import { emailVandilation } from "../utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +49,7 @@ const FormLogin = () => {
         type="email"
         value={email}
         handleChange={handleChange}
-        placeholder="email"
+        label="email"
         name="email"
       />
       {error && (
@@ -65,7 +65,7 @@ const FormLogin = () => {
         type="password"
         value={password}
         handleChange={handleChange}
-        placeholder="password"
+        label="password"
         name="password"
       />
       <div className={classes.checkbox}>

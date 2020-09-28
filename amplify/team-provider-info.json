@@ -1,28 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-eshopper-dev-102600-authRole",
-      "UnauthRoleArn": "arn:aws:iam::398438180431:role/amplify-eshopper-dev-102600-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::398438180431:role/amplify-eshopper-dev-102600-authRole",
+      "AuthRoleName": "amplify-eshopper-dev-113407-authRole",
+      "UnauthRoleArn": "arn:aws:iam::398438180431:role/amplify-eshopper-dev-113407-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::398438180431:role/amplify-eshopper-dev-113407-authRole",
       "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-eshopper-dev-102600-deployment",
-      "UnauthRoleName": "amplify-eshopper-dev-102600-unauthRole",
-      "StackName": "amplify-eshopper-dev-102600",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:398438180431:stack/amplify-eshopper-dev-102600/86c0a720-fdfc-11ea-a15f-0aae6094f03a",
-      "AmplifyAppId": "d2h2un8u9rdy58"
+      "DeploymentBucketName": "amplify-eshopper-dev-113407-deployment",
+      "UnauthRoleName": "amplify-eshopper-dev-113407-unauthRole",
+      "StackName": "amplify-eshopper-dev-113407",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:398438180431:stack/amplify-eshopper-dev-113407/35227f00-fecf-11ea-9253-0a4e171c2900",
+      "AmplifyAppId": "d3lrjsljjnbcmv"
     },
     "categories": {
-      "function": {
-        "eshopper0bd8003bCustomMessage": {
-          "REDIRECTURL": "http://localhost:3000/",
-          "EMAILSUBJECT": "wanghaijun04@gmail.com",
-          "EMAILMESSAGE": ""
-        }
-      },
       "auth": {
-        "eshopper0bd8003b": {
-          "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"1674522812714518\",\"client_secret\":\"ea98bfe3d7902fe0a4ef945a0b6ae1b9\"},{\"ProviderName\":\"Google\",\"client_id\":\"274846823529-pnksntn5oto3dt6t5ok9hf2mbuomv4o3.apps.googleusercontent.com\",\"client_secret\":\"Wi968-48suob_q_SPIlTjKCC\"}]"
-        }
+        "eshopper9c4a9945": {}
       }
     }
   }

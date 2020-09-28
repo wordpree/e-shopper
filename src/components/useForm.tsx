@@ -2,10 +2,11 @@ import { useState } from "react";
 import { ILogin, TChangeEvent } from "../type";
 
 const useFormLogin = (
-  cb: () => void,
+  cb: (username: string, password: string, email: string) => void,
   eVandilation: (email: string) => string | null
 ) => {
   const [input, setInput] = useState<ILogin>({
+    username: "",
     email: "",
     password: "",
     checkbox: false,
@@ -26,10 +27,13 @@ const useFormLogin = (
     });
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const { username, password, email, error } = input;
     e.preventDefault();
-    cb();
+    if (!error && username && password) {
+      cb(username, password, email);
+    }
   };
-  return { input, handleChange, handleSubmit };
+  return { input, setInput, handleChange, handleSubmit };
 };
 
 export default useFormLogin;
